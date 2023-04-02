@@ -5,6 +5,7 @@
     </head>
     <body>
         <h1 align="center">Meme Generator</h1>
+      
       <!---  <img id="img1" src="https://i.gifer.com/33Ho.gif" class="img-fluid rounded mx-auto d-block" alt="meme" height="50%">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -107,6 +108,7 @@
         card.className = "card";
         let newImg = document.createElement('img');
         newImg.src = 'https://i.gifer.com/33Ho.gif';
+        newImg.setAttribute("data-toggle","lightbox");
         async function singleimage(){
             let response =await fetch('https://meme-api.com/gimme');
            console.log(response);
@@ -121,6 +123,8 @@
     const downloadImageAndSetSource = async () => {
     const image = await singleimage();
     newImg.src=image;
+    newImg.setAttribute("data-remote",image);
+    newImg.setAttribute("class","img-fluid");
     newImg.style.height = "40vh";
     newImg.style.width = "calc((100% / 3)+16px)";
 }
@@ -178,4 +182,5 @@ const removeInfiniteScroll = () => {
 
         </script>
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+         <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
     </html>
